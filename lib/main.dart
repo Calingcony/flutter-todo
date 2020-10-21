@@ -5,11 +5,6 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  
-  Widget createDragable(Text text) {
-    return Draggable()
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -27,10 +22,15 @@ class MyApp extends StatelessWidget {
           title: Text('Todo'),
         ),
         body: Column(
+          // list view
+          // dismissable. Can be swiped to both directions R delete and L
           children: [
-            for (var i = 0; i < 10; i++) {
-              return 
-            }
+            Draggable(
+              axis: Axis.vertical,
+              child: Card(child: Text('draggable child')),
+              feedback: Card(child: Text('draggable feedback')),
+              childWhenDragging: Card(child: Text('child while draggable')),
+            )
           ],
         ),
       ),
